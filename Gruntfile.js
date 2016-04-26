@@ -18,6 +18,8 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-ng-annotate');
   grunt.loadNpmTasks('grunt-html2js');
+  grunt.loadNpmTasks('grunt-express');
+  grunt.loadNpmTasks('grunt-protractor-runner');
 
   /**
    * Load in our build configuration file.
@@ -353,6 +355,18 @@ module.exports = function ( grunt ) {
       }
     },
 
+    express: {
+      devServer: {
+        options: {
+          port: 9113,
+          hostname: 'localhost',
+          serverreload: false,
+          bases: 'build',
+          livereload: true
+        }
+      }
+    },
+
     /**
      * The Karma configurations.
      */
@@ -544,6 +558,17 @@ module.exports = function ( grunt ) {
           livereload: false
         }
       }
+    },
+    protractor: {
+      options: {
+        configFile: 'protractor.conf.js', // Default config file
+        keepAlive: false, // If false, the grunt process stops when the test fails.
+        noColor: false, // If true, protractor will not use colors in its output.
+        args: {
+          // Arguments passed to the command
+        }
+      },
+      all: {}
     }
   };
 
@@ -557,7 +582,8 @@ module.exports = function ( grunt ) {
    * before watching for changes.
    */
   grunt.renameTask( 'watch', 'delta' );
-  grunt.registerTask( 'watch', [ 'build', 'karma:unit', 'delta' ] );
+  grunt.registerTask( 'watch', [ 'build', 'karma:unit', 'express', 'delta' ] );
+  grunt.registerTask('e2e', ['build', 'express', 'protractor']);
 
   /**
    * The default task is to build and compile.
