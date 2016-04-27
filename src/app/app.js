@@ -2,7 +2,11 @@ angular.module( 'ngBoilerplate', [
   'templates-app',
   'templates-common',
   'ngBoilerplate.home',
+  'ngBoilerplate.employees',
   'ngBoilerplate.about',
+  'ngBoilerplate.mockServices',
+  'ngBoilerPlate.employeeService',
+  'ngMockE2E',
   'ui.router'
 ])
 
@@ -19,7 +23,5 @@ angular.module( 'ngBoilerplate', [
       $scope.pageTitle = toState.data.pageTitle + ' | ngBoilerplate' ;
     }
   });
-})
-
-;
+});
 

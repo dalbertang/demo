@@ -15,10 +15,15 @@ module.exports = function ( karma ) {
       'src/**/*.coffee',
     ],
     exclude: [
-      'src/assets/**/*.js'
+      'src/assets/**/*.js',
+      'src/**/*.protractor.spec.js'
     ],
     frameworks: [ 'jasmine' ],
-    plugins: [ 'karma-jasmine', 'karma-firefox-launcher', 'karma-coffee-preprocessor' ],
+    plugins: [ 'karma-jasmine',
+    'karma-firefox-launcher',
+    'karma-coffee-preprocessor',
+    'karma-phantomjs-launcher',
+  ],
     preprocessors: {
       '**/*.coffee': 'coffee',
     },
@@ -55,7 +60,7 @@ module.exports = function ( karma ) {
      * the aesthetic advantage of not launching a browser every time you save.
      */
     browsers: [
-      'Firefox'
+      'PhantomJS'
     ]
   });
 };

@@ -1,0 +1,28 @@
+<div class="row">
+  <h1 class="page-header">
+    The Elevator Pitch
+    <small>For the lazy and impatient.</small>
+  </h1>
+  <p>
+  Employeess
+  </p>
+
+    <table class="table table-striped employee-list">
+        <tr>
+            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        <tr ng-repeat="employee in employees" class="employee-row">
+            <td class="actions-col">
+                <span class="actions">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span class="glyphicon glyphicon-remove"></span>
+                </span>
+            </td>
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+        </tr>
+    </table>
+</div>
+
