@@ -14,7 +14,17 @@ angular.module( 'ngBoilerplate', [
   $urlRouterProvider.otherwise( '/home' );
 })
 
-.run( function run () {
+.run( function run ($rootScope, $location) {
+
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+      //save location.search so we can add it back after transition is done
+
+      this.locationSearch = $location.search();
+    });
+    $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+      //restore all query string parameters back to $location.search
+      $location.search(this.locationSearch);
+    });
 })
 
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {

@@ -1,8 +1,7 @@
 protractor.pages ? "" : protractor.pages = {};
 
 protractor.pages.BasePage = function () {
-
-console.log('lskjflsj');
+  var protractor = require('protractor');
 
   this.scrollIntoView = function(elemFinder) {
     var promise = browser.executeScript(function(elem) {
@@ -25,5 +24,10 @@ console.log('lskjflsj');
       });
     });
   };
+
+  this.get = function(url) {
+    browser.get(url);
+  };
+
 
 };

@@ -1,12 +1,17 @@
 describe('Employee Listing Page', function(){
-  var page = new protractor.pages.EmployeesPage();
+  var protractor = require('protractor');
 
-  it('should do something', function(){
-    console.log('doing');
+  var page = new protractor.pages.BasePage();
+  //var ptor = protractor.getInstance();
+
+  beforeEach(function(){
+    page.get('http://localhost:9113/#/employees?nobackend');
   });
 
-  it('should have employees', function(){
 
+  it('should have employees', function(){
+    //console.log(page.getEmployees());
+    //ptor.wait(3000);
   });
 
 

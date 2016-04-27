@@ -1,27 +1,37 @@
 angular.module('ngBoilerPlate.employeeService', ['ngResource'])
 .factory('EmployeeService', function($resource){
-    var employService = $resource('employee-api/v1/employees', {}, {
+    var employeeService = $resource('employee-api/v1/employees', {}, {
       get: {
         method: 'GET',
         isArray: true
+      },
+      post: {
+        method: 'POST'
       }
     });
 
 
     function getEmployees(cb){
-      employService.get().$promise.then(function(data){
+      employeeService.get().$promise.then(function(data){
         cb(data);
       });
     }
 
     function getEmployee(employeeId, cb){
-      employService.get({id: employeeId}).$promise.then(function(data){
+      employeeService.get({id: employeeId}).$promise.then(function(data){
+        cb(data);
+      });
+    }
+
+    function addEmployee(employee, cb){
+      employeeService.add(employee).$promise.then(function(data){
         cb(data);
       });
     }
 
 
     return {
-      getEmployees: getEmployees
+      getEmployees: getEmployees,
+      addEmployee: addEmployee
     };
   });
