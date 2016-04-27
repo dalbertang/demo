@@ -1,27 +1,35 @@
 <div class="row employees-container">
   <h1 class="page-header">
-    The Elevator Pitch
-    <small>For the lazy and impatient.</small>
+    Our Staff
+    <small></small>
   </h1>
   <p>
-  Employeess
+  Employees
   </p>
+    <div>
+        <span></span>
+        <span>
+
+        </span>
+    </div>
 
     <table class="table table-striped employee-list">
         <tr>
             <th></th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th></th>
         </tr>
         <tr ng-repeat="employee in employees" class="employee-row">
             <td class="actions-col">
                 <span class="actions">
                     <span class="glyphicon glyphicon-pencil"></span>
-                    <span class="glyphicon glyphicon-remove"></span>
+                    <span class="glyphicon glyphicon-remove" ng-click="removeEmployee(employee)"></span>
                 </span>
             </td>
             <td>{{employee.firstName}}</td>
             <td>{{employee.lastName}}</td>
+            <td></td>
         </tr>
     </table>
 </div>

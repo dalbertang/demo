@@ -5,6 +5,10 @@ describe('Employee Listing Page', function(){
     console.log('doing');
   });
 
+  it('should have employees', function(){
+
+  });
+
 
 
 });

@@ -10,29 +10,29 @@ angular.module( 'ngBoilerplate.mockServices', ['ngMockE2E'])
 
     if (document.URL.match(/nobackend/)) {
       nobackend = true;
-      console.log('mockServices using nobackend');
+      //console.log('mockServices using nobackend');
 
       $httpBackend.whenGET(URL.EMPLOYEE_SERVICE).respond(function(method, url, data){
         var employees = [
           {firstName: 'John', lastName: 'Smith', id: 1},
           {firstName: 'Dave', lastName: 'Johnson', id: 2},
-          {firstName: 'Beth', lastName: 'Parker', id: 1},
-          {firstName: 'Karl', lastName: 'Karlson', id: 1},
-          {firstName: 'Gina', lastName: 'David', id: 1},
-          {firstName: 'Bran', lastName: 'Stork', id: 1},
-          {firstName: 'Peter', lastName: 'Yorker', id: 1},
-          {firstName: 'May', lastName: 'Plume', id: 1},
-          {firstName: 'Janelle', lastName: 'Francisco', id: 1},
-          {firstName: 'Reggie', lastName: 'Lane', id: 1},
-          {firstName: 'Sam', lastName: 'Smith', id: 1},
-          {firstName: 'David', lastName: 'Olan', id: 1}
+          {firstName: 'Beth', lastName: 'Parker', id: 3},
+          {firstName: 'Karl', lastName: 'Karlson', id: 4},
+          {firstName: 'Gina', lastName: 'David', id: 5},
+          {firstName: 'Bran', lastName: 'Stork', id: 6},
+          {firstName: 'Peter', lastName: 'Yorker', id: 7},
+          {firstName: 'May', lastName: 'Plume', id: 8},
+          {firstName: 'Janelle', lastName: 'Francisco', id: 9},
+          {firstName: 'Reggie', lastName: 'Lane', id: 10},
+          {firstName: 'Sam', lastName: 'Smith', id: 11},
+          {firstName: 'David', lastName: 'Olan', id: 12}
         ];
 
         return [200, employees];
       });
 
     }else{
-      console.log('mockServices not using nobackend');
+      //console.log('mockServices not using nobackend');
     }
 
 }]);

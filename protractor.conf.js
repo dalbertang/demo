@@ -8,13 +8,13 @@ if (process.platform === 'win32') {
 
 exports.config = {
   // Capabilities to be passed to the webdriver instance.
-  //chromeDriver: 'node_modules/chromedriver/bin/chromedriver',
-  //'browserName': 'chrome',
-  capabilities: {
-    'browserName': 'phantomjs',
-    'phantomjs.binary.path': binaryPath,
-    'phantomjs.ghostdriver.cli.args': ['--loglevel=DEBUG']
-  },
+  chromeDriver: 'node_modules/chromedriver/bin/chromedriver',
+  'browserName': 'chrome',
+  //capabilities: {
+    //'browserName': 'phantomjs',
+    //'phantomjs.binary.path': binaryPath,
+    //'phantomjs.ghostdriver.cli.args': ['--loglevel=DEBUG']
+  //},
 
   // Framework to use. Jasmine 2 is recommended.
   framework: 'jasmine2',
@@ -23,11 +23,8 @@ exports.config = {
   // protractor is called.
   specs: [
     'test/e2e/pages/basePage.js',
-    //'test/e2e/pages/costPage.js',
-    //'test/e2e/pages/offersPage.js',
-    //'test/e2e/pages/topNavPage.js',
-    //'test/e2e/pages/subscribePage.js',
-    'src/app/**/*.protractor.spec.js'
+    'test/e2e/pages/employeesPage.js',
+    'test/e2e/**/*.spec.protractor.js'
   ],
 
   //suites: {

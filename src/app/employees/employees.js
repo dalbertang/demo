@@ -20,13 +20,22 @@ angular.module( 'ngBoilerplate.employees', [
 .controller( 'EmployeesCtrl', function EmployeesCtrl( $scope, EmployeeService) {
 
     $scope.employees = [];
-
     EmployeeService.getEmployees(function(data){
       if (data !== null){
-        console.log(data);
         $scope.employees = data;
       }
     });
 
+    $scope.removeEmployee = function(employee){
+      //console.log('employee : ', employee);
+      for(var i=0; i < $scope.employees.length; i++){
+        if (employee.id === $scope.employees[i].id){
+          $scope.employees.splice(i,1);
+          //console.log('removing: ', i);
+          break;
+        }
+      }
+
+    };
 
 });
